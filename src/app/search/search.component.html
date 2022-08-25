@@ -1,4 +1,22 @@
 <!-- 
   search works!
 -->
-<p>search works!</p>
+<div class="container">
+  <div class="m-3 text-center" >
+    <form class="form-inline" (ngSubmit)="onSubmit(f)"  #f= "ngForm">
+        <div class="form-group">
+            <input type="`search" 
+            class="form-control" 
+            placeholder="Enter search string" 
+            name="search" ngModel 
+            required>
+        </div><br/>
+        <button type="submit"
+                class="btn btn-primary">
+          search
+        </button>
+    </form>
+    <hr/>
+  </div>
+</div>
+
