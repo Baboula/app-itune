@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ItuneService } from '../shared/itune.service';
 
 @Component({
   selector: 'app-search',
@@ -8,14 +9,13 @@ import { NgForm } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ituneService: ItuneService) { }
 
   ngOnInit(): void {
   }
   onSubmit(form: NgForm){
-    console.log(form
-      .value)
-
+      this.ituneService.searchMusic(form
+        .value.search);
   }
 
 }
