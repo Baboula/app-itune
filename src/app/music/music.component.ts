@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs';
 import { ItuneService } from '../shared/itune.service';
 import { Music } from '../shared/music';
 
@@ -12,14 +11,13 @@ import { Music } from '../shared/music';
 export class MusicComponent implements OnInit {
 
   music!: Music;
-  constructor(private router: Router, private route: ActivatedRoute, public ituneService: ItuneService) { 
+  constructor(private router: Router, private route: ActivatedRoute, public ituneMusicService: ItuneService) { 
    this.route.params.subscribe((
     params => {
       if(params[`musicId`]){
-
-      //console.log(params[`musicId`]);
-       // this.getMusic(params[`musicId`]);
-        console.log(params[`musicId`]);
+        
+       //this.getMusic(params[`musicId`]);
+       console.log(params[`musicId`]);
       }
     }
     
@@ -28,13 +26,15 @@ export class MusicComponent implements OnInit {
   }
 
   /*getMusic(musicId: string){
-    this.ituneService.moreInfos(musicId).pipe(
+    this.ituneMusicService.moreInfos(musicId).pipe(
       map(data => {
-          const res: any = data;
-          console.log(res);
+        const res: any = data;
+        console.log(res.results);
+        return res.results? res.results: [];
       })  
-  ).subscribe((music: Music) => this.music= music);
+    ).subscribe((music) => this.music= music);
   }*/
+
   ngOnInit(): void {
   }
 
