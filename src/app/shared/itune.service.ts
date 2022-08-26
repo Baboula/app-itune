@@ -24,6 +24,10 @@ export class ItuneService{
         ).subscribe(music => this.music= music);
      }
 
+     public moreInfos(musicId: string){
+        this.http.get(`${this.config.apiEndPoint}lookup?id=${musicId}`)
+     }
+
     public bookFactory(item: any): Music{
         return new Music(
             item.artistName,
