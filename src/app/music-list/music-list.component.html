@@ -1,19 +1,16 @@
-<!--
 <div class="row m-3">
-
-
-  <div *ngFor ="let music of musics" class="card col-md-4 col-lg-2 col-sm-1" style="width: 18rem;">
+  <div *ngFor ="let music of musics" class="card col-md-4 col-lg-2 col-sm-1" style="width: 15rem;">
     <img class="card-img-top" src="{{music.artworkUrl60}}">
     <div class="card-body">
       <h5 class="card-title">{{music.artistName}}</h5>
       <p class="card-text">{{music.subTitle}}</p>
-      <a [routerLink]="['/music',music.trackId]" class="btn btn-primary" target="_blank">Voir plus</a>
+      <a [routerLink]="['/music',music.trackId]" class="btn btn-success" target="_blank">Voir plus</a>
     </div>
   </div>
 </div>
--->
 
-<div class="row m-6">
+
+<!--<div class="row m-6">
     <div class="col-lg-4" *ngFor ="let music of musics">
       <div class="card">
         <img alt="Card image cap" class="card-img-top img-responsive" src="{{music.artworkUrl60}}">
@@ -28,5 +25,5 @@
       <a  [routerLink]="['/music',music.trackId]" class="btn btn-primary btn-rounded waves-effect waves-light m-t-20">lire plus</a>
     </div></div>
     </div>
-  </div>
+  </div>-->
   
