@@ -8,6 +8,7 @@ import { Music } from "./music";
 export class ItuneService{
 
     public query!: string;
+    public music!: Music[];
 
     constructor(private http: HttpClient, @Inject(APP_CONFIG) private config: AppConfig){
 
@@ -20,12 +21,13 @@ export class ItuneService{
                 console.log(res.results);
                 return res.results? res.results: [];
             })  
-        ).subscribe(music => '');
+        ).subscribe(music => this.music= music);
      }
 
     public bookFactory(item: any): Music{
         return new Music(
             item.artistName,
+            item.subTitle,
             item.artistViewUrl,
             item.artwork30,
             item.artworkurl60,
